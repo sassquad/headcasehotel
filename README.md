@@ -2,9 +2,13 @@
 An arcade adventure game written for the BBC Micro
 
 ## Play the game online
-The game is available to play online, via the Javascript BBC Micro Emulator jsBeeb:
+The game is available to play online, via the Javascript BBC Micro Emulator [jsBeeb](https://github.com/mattgodbolt/jsbeeb):
 
 http://bbc.godbolt.org/?disc=http://www.sassquad.com/downloads/HeadcaseHotel.ssd&autoboot
+
+## Watch a video of the game
+
+https://youtu.be/9C02rzUAaLY
 
 ## About the game
 
