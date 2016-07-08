@@ -1,0 +1,110 @@
+REM Headcase Hotel Listing 2 (HOTEL1)
+REM Instructions and setup
+REM By Stephen Scott
+REM Version 1.1
+REM 18th-21st August, 1995
+REM
+:
+*TV255
+ONERRORMODE7:REPORT:PRINT“ at line ”;ERL:END
+MODE7
+VDU23;8202;0;0;0;
+FORA=1TO8:READA$
+PRINTTAB(1,1+(A*2));CHR$131;A$;
+NEXT
+FORA=1TO5:READA$
+PRINTTAB(4,7+A*2)CHR$131;A$;
+NEXT
+PRINTTAB(2,20)“V1.11”
+PRINTTAB(0,22)“21/8/95”
+PRINTTAB(0,0)CHR$145STRING$(7,CHR$96)CHR$237
+FORY=1TO22
+VDU31,7,Y
+PRINTCHR$145CHR$106CHR$140CHR$153
+NEXT
+PRINTTAB(7,23);CHR$145CHR$42CHR$244;STRING$(29,CHR$112)
+VDU28,10,22,39,0,12
+PRINTTAB(0,9)CHR$133“Do you want instructions ?”
+REPEAT:A$=GET$
+UNTILA$=“Y” ORA$=“y” ORA$=“N” ORA$=“n”
+IFA$=“Y” ORA$=“y” PROCinst
+IFA$=“N” ORA$=“n” PROCload
+END
+DATA H,E,A,D,C,A,S,E
+DATA H,O,T,E,L
+DEFPROCinst
+CLS
+PRINT’CHR$131“ You have been employed by”‘CHR$131“the Hotel Assylham to clean”’CHR$131“up its ten floors. This is”‘CHR$131“done by collecting a given”’CHR$131“amount of a specified item”‘CHR$131“of rubbish.”
+PRINT’CHR$134“ Roaming around each floor”‘CHR$134“are the hotel guests. They”’CHR$134“don’t take kindly to your”‘CHR$134“presence, and will complain”’CHR$134“to the management if you”‘CHR$134“touch them. You will then be”
+PRINTCHR$134“given a black mark on your”’CHR$134”employment record. Get three”’CHR$134“black marks and you are”’CHR$134“fired!”
+PRINT’CHR$133“ To exit the floor, go to”‘CHR$133“the open lift doors.”
+PRINT’SPC9CHR$135CHR$136“HIT A KEY”;
+*FX15,0
+A=GET
+CLS
+PRINT’CHR$130“ Use the following keys to”’CHR$130”move around the screen:”
+PRINT’SPC6;CHR$130“Z = Move left”
+PRINT SPC6;CHR$130“X = Move right”
+PRINT SPC6;CHR$130“P = Move up”
+PRINT SPC6;CHR$130“L = Move down”
+PRINT’CHR$129“ In addition, the following”’CHR$129”keys can be used during”’CHR$129“gameplay:”
+PRINT’SPC6;CHR$134“S = Sound on”
+PRINT SPC6;CHR$134“Q = Sound off”
+PRINT‘CHR$134“Delete = Pause”
+PRINT SPC3;CHR$134“Copy = Unpause”
+PRINT‘CHR$129“ D = Quit game”
+PRINTTAB(0,21)CHR$135CHR$136“HIT A KEY TO LOAD THE GAME”;
+*FX15,0
+A=GET
+PROCload:ENDPROC
+:
+DEFPROCload
+REM Borders
+VDU23,224,31,63,112,224,192,192,192,192
+VDU23,225,255,255,0,0,0,0,0,0
+VDU23,240,248,252,14,7,3,3,3,3
+VDU23,227,192,192,192,192,192,192,192,192
+VDU23,228,3,3,3,3,3,3,3,3
+VDU23,229,192,192,192,192,224,112,63,31
+VDU23,230,0,0,0,0,0,0,255,255
+VDU23,231,3,3,3,3,7,14,252,248
+REM Score letters
+VDU23,232,238,136,136,232,40,40,238,0
+VDU23,233,238,170,170,172,170,170,234,0
+VDU23,234,224,128,128,200,128,128,232,0
+REM
+REM Record block
+VDU23,236,170,84,170,84,170,84,170,0
+REM Black Mark
+VDU23,237,0,0,0,56,56,56,0,0
+REM Level symbol
+VDU23,238,254,186,214,186,214,186,214,0
+VDU23,241,129,66,36,24,24,36,66,129
+VDU23,242,16,16,16,146,84,56,16,0
+VDU23,255,255,255,255,255,255,255,255,255
+REM Bonus icon sounds
+REM Teleport icon
+ENVELOPE1,1,8,0,0,10,0,0,127,-1,-1,-3,126,100
+REM Gain black mark/hit monster
+ENVELOPE2,1,50,50,30,30,30,30,127,-1,-1,-1,126,100
+REM Lose black mark
+ENVELOPE3,1,-1,1,-2,5,5,5,127,-1,-1,-1,126,100
+REM Pause
+ENVELOPE4,1,2,-1,15,3,3,2,10,-1,-1,-1,126,126
+REM Doubler
+ENVELOPE5,1,1,-2,1,5,18,8,126,-1,-1,-8,120,90
+REM Down level
+ENVELOPE6,3,-1,0,0,246,0,0,0,0,-1,-3,120,120
+REM Collectables
+ENVELOPE7,1,-12,40,2,10,13,14,127,-1,-1,-3,120,120
+REM Thunderbolt
+ENVELOPE8,4,-4,-1,-1,20,20,20,1,0,0,0,1,1
+:
+REM Monster movement
+ENVELOPE9,1,4,-3,0,20,10,0,127,-1,-1,-4,20,20
+REM Got object
+ENVELOPE10,1,90,90,90,40,40,40,126,-1,-3,-4,120,20
+REM Game over
+ENVELOPE11,4,-4,-8,1,14,14,14,126,-1,-1,-1,120,120
+PAGE=&1100:CHAIN“HOTEL2”
+ENDPROC
