@@ -23,3 +23,7 @@ Written for the BBC Micro, the game is written predominantly in BBC Basic, with 
 There are three main files, one to generate the sprite data, one to display instructions, setup sounds and UI graphics, with the last file being the game code itself. In the case of the latter, I've had to include the line numbers, due to the many GOTOs and GOSUBs employed at the time.
 
 I've added the code here so that it is easier to browse for historical purposes.
+
+## How to build
+
+If you wish to build your own disc image of the game, you'll need Beebasm installed on your computer. If you are using Visual Studio Code, then you can use the Task feature to build an image via Ctrl-Shift-B. This will assemble the contents of the src folder, and create the HHotel.ssd image, for use in your machine, or emulator of choice.
