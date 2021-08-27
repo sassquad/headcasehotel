@@ -1,0 +1,1 @@
+beebasm -i HeadcaseHotel.asm -do HHotel.ssd -opt 3 -title Headcase
