@@ -1,14 +1,16 @@
 # Headcase Hotel
-An arcade adventure game written for the BBC Micro.
+An arcade adventure game written for the BBC Micro, based on an idea by Christopher West.
 
 ![Image of Headcase Hotel](https://www.sassquad.net/images/riscos/headcase1.png)
 ![Image of Headcase Hotel](https://www.sassquad.net/images/riscos/headcase2.png)
 ![Image of Headcase Hotel](https://www.sassquad.net/images/riscos/headcase3.png)
 
 ## Play the game online
-The game is available to play online, via the Javascript BBC Micro Emulator [jsBeeb](https://github.com/mattgodbolt/jsbeeb):
+The game is available to play online, via the Javascript BBC Micro Emulator [jsBeeb](https://github.com/mattgodbolt/jsbeeb). There are two versions, the original release, and a bug-fixed version, released in October 2021.
 
-https://bbc.godbolt.org/?disc=https://www.sassquad.net/downloads/HeadcaseHotel.ssd&autoboot
+* Revised, bug-fixed version (with vastly reduced strobing effect) - https://bbc.godbolt.org/?disc=https://www.sassquad.net/downloads/headcasehotel/redux/HHotel.ssd&autoboot
+
+* Original release (**beware**, this version contains intense strobing effects, not recommended for anyone with epilepsy) - https://bbc.godbolt.org/?disc=https://www.sassquad.net/downloads/HeadcaseHotel.ssd&autoboot
 
 ## Watch a video of the game
 
