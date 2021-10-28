@@ -1,6 +1,6 @@
 10REM Hotel Madness Listing 1 (HOTELSP)
 20REM Sprite Data Construction
-30REM Version 1.12 (28/10/2021)
+30REM Version 1.13 (28/10/2021)
 40REM (c) Stephen Scott 1995, 2021
 50REM Based on an idea by Christopher West
 60:
